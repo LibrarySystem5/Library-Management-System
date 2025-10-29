@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.usiu.library.Main",
+      "projectName": "library"
+    },
+    {
+      "type": "java",
+      "name": "Launch LibraryApp",
+      "request": "launch",
+      "mainClass": "com.usiu.library.LibraryApp",
+      "vmArgs": "--module-path \"C:\\Program Files\\javafx-sdk-25.0.1\\lib\" --add-modules javafx.controls,javafx.fxml"
+    }
+  ]
+}
