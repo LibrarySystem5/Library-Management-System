@@ -1,99 +1,137 @@
-Library Management System 
-# 📚 Library Management System — User Interface (JavaFX)
+📚 LibraryFX Frontend (React + Vite + Tailwind)
 
-This branch contains the **User Interface (UI)** implementation of the USIU Library Management System built using **JavaFX**.  
-The interface provides an intuitive front-end for both **Students** and **Librarians**, allowing them to interact with the system through well-structured views and controls.
+A modern and responsive frontend for the LibraryFX Management System, built using React, Vite, TailwindCSS, and Context API for authentication state management.
+This frontend interacts with the backend API to allow students and librarians to manage library operations seamlessly.
 
----
+🚀 Features
+👩‍🏫 Librarians
 
-## 🧩 Project Overview
+View dashboard
 
-The Library Management System is designed to support core library operations including:
-- User authentication (Login & Sign Up)
-- Borrowing and returning books
-- Managing book records
-- Viewing transaction and fine details
+Manage books
 
-This **UI branch** focuses on the **visual layer** — all `.fxml`, `.css`, and controller files — and integrates later with the backend logic and database.
+View borrowers
 
----
+Track returns
 
-## 🗂️ Folder Structure
-LibraryFX/
+🎓 Students
+
+View borrowed books
+
+Browse available books
+
+Access personalized dashboard
+
+🔐 Authentication
+
+JWT-based login system
+
+Persistent authentication with React Context
+
+🧩 UI/UX
+
+TailwindCSS styling
+
+Fully responsive interface
+
+Clean component structure
+
+📁 Project Structure
+
+C:.
+│   .gitignore
+│   eslint.config.js
+│   index.html
+│   package-lock.json
+│   package.json
+│   postcss.config.js
+│   README.md
+│   tailwind.config.js
+│   vite.config.js
 │
-├── src/
-│ └── com/usiu/library/
-│ ├── controllers/
-│ │ ├── LoginController.java
-│ │ ├── StudentDashboardController.java
-│ │ ├── LibrarianDashboardController.java
-│ │ ├── FinesController.java
-│ │ └── (other controllers)
-│ │
-│ ├── models/
-│ │ └── Book.java
-│ │
-│ ├── LibraryApp.java
-│ └── Main.java
+├───public
+│       vite.svg
 │
-├── resources/
-│ ├── views/
-│ │ ├── login.fxml
-│ │ ├── student_dashboard.fxml
-│ │ ├── librarian_dashboard.fxml
-│ │ ├── fines.fxml
-│ │ └── (other fxml files)
-│ │
-│ └── styles/
-│ └── style.css
-│
-└── README.md
+└───src
+    │   App.css
+    │   App.jsx
+    │   index.css
+    │   main.jsx
+    │
+    ├───api
+    │       axios.js
+    │
+    ├───assets
+    │       react.svg
+    │
+    ├───context
+    │       AuthContext.jsx
+    │
+    └───pages
+            LandingPage.jsx
+            LibrarianDashboard.jsx
+            StudentDashboard.jsx
 
----
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
+Tool	Purpose
+React	UI components and SPA structure
+Vite	Fast dev server and bundler
+TailwindCSS	Styling
+Axios	API requests
+Context API	Global auth state
+ESLint	Code linting
 
-- **Language:** Java 25  
-- **UI Framework:** JavaFX 25.0.1  
-- **IDE:** Visual Studio Code  
-- **Build Tool:** (Optional) Gradle or Maven  
-- **Version Control:** Git & GitHub
+📦 Installation & Setup
+1️⃣ Clone the repository
+git clone <your-repository-url>
+cd <project-folder>
 
----
+2️⃣ Install dependencies
+npm install
 
-## ⚙️ Setup Instructions
+3️⃣ Start development server
+npm run dev
+This will run the app on:
+http://localhost:5173
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/<your-username>/LibraryFX.git
-cd LibraryFX
-git checkout user-interface
-2️⃣ Ensure You Have the Correct Environment
+4️⃣ Build for production
+npm run build
 
-JDK: 25 or higher
-Apache Maven 3.9.11
-JavaFX SDK: 25.0.1
-Download from https://gluonhq.com/products/javafx/
-3️⃣ Configure JavaFX in VS Code
+🌐 Environment Variables
 
-Add this to your .vscode/settings.json:{
-    "java.debug.settings.vmArgs": "--module-path \"C:\\Program Files\\javafx-sdk-25.0.1\\lib\" --add-modules javafx.controls,javafx.fxml"
-}
+Create .env in the root directory:
+VITE_API_BASE_URL=http://localhost:8080/api
+Your axios.js file will use this variable to call backend routes.
+🔗 API Integration
+All API calls are centralized in: src/api/axios.js
 
-4️⃣ Run the Application
-Run the application via Maven instead of directly when using VS Code.
-From VS Code or terminal: $env:JAVA_HOME = "C:\Program Files\Java\jdk-25"; $env:Path += ";C:\Program Files\apache-maven-3.9.11\bin"; mvn clean javafx:run
+🧩 Pages Overview
+LandingPage.jsx
 
-Contributor (UI Lead):
-**Margret Wafula**
+Homepage for login selection
 
-1. Finalized class structures and relationships
-2. Created JavaFX interfaces (FXML + CSS)
-3. Ensured consistent naming conventions & formatting
-4. Integrated UI components for project collaboration
+Entry point for all users
 
-**NOTE:: I've set up placeholders users for the sake of testing the UI in the File ; LoginController.java
-        For Student User : username - student
-                            password - 1234
-        For Admin/Librarian User : username - admin
-                                    password - 1234
+LibrarianDashboard.jsx
+
+Displays book management tools
+
+Shows student borrowing activity
+
+StudentDashboard.jsx
+
+Displays student-specific borrowed books
+
+🔐 Authentication Flow
+
+Stored in: src/context/AuthContext.jsx
+
+Handles:
+Login
+Token storage (localStorage)
+Redirecting based on role
+Global user state
+
+
+
